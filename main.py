@@ -5,4 +5,6 @@
 #sorozat.konzolra_kiir()
 #sorozat.file_kiir()
 import epuletek
-epuletek.negyedikFeladat()
+epuletek.harmasFeladatAB()
+epuletek.cHarmas()
+epuletek.dHarmas()

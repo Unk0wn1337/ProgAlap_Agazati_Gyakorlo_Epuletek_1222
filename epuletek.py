@@ -1,27 +1,37 @@
 import Epulet
 
+f = open("epulet.txt","r",encoding="utf-8")
+f.readline()
+sorok = f.readlines()
+f.close()
 
-def negyedikFeladat():
-    f = open("epulet.txt","r",encoding="utf-8")
-    f.readline()
-    adatok = f.readlines()
-    f.close()
-    sorok = 0
-    magasabbMint555Lab = 0
-    legoregebbEpulet = 2000
-    legoregebbEpuletOrszag = ""
+def harmasFeladatAB():
     index = 0
-    while index < len(adatok):
-        sorok += 1
-        Haz = Epulet.Epulet(adatok[index])
-        if Haz.magassag > 169:
-            magasabbMint555Lab += 1
-        if Haz.epult < legoregebbEpulet:
-            legoregebbEpuletOrszag = Haz.orszag
+    while index < len(sorok):
         index+=1
-    print("III/A,B:")
-    print(f"\tAz epuletek szama: {sorok}.")
-    print("III/C:")
-    print(f"\tAz 555 labnal magasabb epuletek szama: {magasabbMint555Lab}.")
-    print("III/D:")
-    print(f"\tA legoregebb epulet orszaga: {legoregebbEpuletOrszag}.")
+    print(f"III/A, B:\n\tAz epuletek szama: {index}")
+
+
+def cHarmas():
+    index = 0
+    labMagassabMint555 = 0
+    while index < len(sorok):
+        haz = Epulet.Epulet(sorok[index])
+        if haz.magassag > 169:
+            labMagassabMint555 += 1
+        index+=1
+    print(f"III/C\n\tAz 555 labnal magasabb epuletek szama: {labMagassabMint555}")
+
+
+def dHarmas():
+    legoregebbEpulet = 2000
+    legoregebbEpuletNeve = ""
+    index = 0
+    while index < len(sorok):
+        haz = Epulet.Epulet(sorok[index])
+        if haz.epult < legoregebbEpulet:
+            legoregebbEpulet = haz.epult
+            legoregebbEpuletNeve = haz.orszag
+        index+=1
+    print(f"III/D:\n\t A legoregebb epulet orszaga: {legoregebbEpuletNeve}")
+
